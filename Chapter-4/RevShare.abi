@@ -1,0 +1,65 @@
+[{
+    constant: true,
+    inputs: [],
+    name: "creator",
+    outputs: [{
+        name: "",
+        type: "address"
+    }],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "kill",
+    outputs: [],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [],
+    name: "numShareholders",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    name: "shareholders",
+    outputs: [{
+        name: "",
+        type: "address"
+    }],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "shareRevenue",
+    outputs: [{
+        name: "success",
+        type: "bool"
+    }],
+    type: "function"
+}, {
+    inputs: [{
+        name: "addresses",
+        type: "address[]"
+    }],
+    type: "constructor"
+}, {
+    anonymous: false,
+    inputs: [{
+        indexed: false,
+        name: "_amount",
+        type: "uint256"
+    }, {
+        indexed: false,
+        name: "_numShareholders",
+        type: "uint256"
+    }],
+    name: "Disburse",
+    type: "event"
+}]

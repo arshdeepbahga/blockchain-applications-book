@@ -1,0 +1,52 @@
+//Contract source converted to a string
+var contractSource = "contract SmartSwitch {...}";
+
+//Compile contract
+var contractCompiled = eth.compile.solidity(contractSource);
+
+//Create contract
+var myContract = 
+  web3.eth.contract(contractCompiled.SmartSwitch.info.abiDefinition);
+
+//Deploy contract 
+var myContractInstance = myContract.new(
+    {
+        from:web3.eth.accounts[0], 
+        data:contractCompiled.SmartSwitch.code, 
+        gas: 1000000
+    }, function(e, contract){
+    if(!e) {
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + 
+            contract.transactionHash + " waiting to be mined...");
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+      }
+    }
+});
+
+//Contract transaction send: 
+//TransactionHash: 0x0f558188e67cd96daae7cf63a8a4813756
+1a1fce9616148e0e817db1746aac08 waiting to be mined...
+//Contract mined! Address: 
+//0x0cafd203ca406bb39985d0f70d55b44b78d756eb
+
+// Send transaction to pay an amount to contract account
+> myContractInstance.payToSwitch.sendTransaction({from: eth.accounts[1], 
+            value: web3.toWei(0.1, "ether"), gas: 2000000})
+
+> web3.fromWei(eth.getBalance(myContractInstance.address), "ether")
+0.1
+
+// Call contract to check number of users
+> myContractInstance.numUsers.call()
+1
+
+// Call contract to check amount paid by a user
+> myContractInstance.usersPaid.call(eth.accounts[1])
+100000000000000000
+
+// Send transaction to withdraw funds from 
+//contract account to owner's account
+> myContractInstance.withdrawFunds.sendTransaction(
+                            {from: eth.accounts[0], gas: 2000000})

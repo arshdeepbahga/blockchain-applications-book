@@ -1,0 +1,13 @@
+var options = {
+  from: identity,
+  topics: [web3.fromAscii("example")]
+};
+
+var myfilter = web3.shh.filter(options).watch(function(err, msg) {
+  if(err){
+    console.log("Error:",  JSON.stringify(err));
+  }else{
+    console.log("Message:",  JSON.stringify(msg));
+    console.log("Payload:",  web3.toAscii(msg.payload));
+  }
+});

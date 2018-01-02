@@ -1,0 +1,78 @@
+{
+  abi: [{
+      constant: true,
+      inputs: [],
+      name: "numUsers",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [{...}],
+      name: "usersPaid",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "getNumUsers",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [],
+      name: "destroy",
+      outputs: [],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "getOwner",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "owner",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [],
+      name: "activateSwitch",
+      outputs: [],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [{...}, {...}],
+      name: "refundUser",
+      outputs: [],
+      type: "function"
+  }, {
+      inputs: [],
+      type: "constructor"
+  }, {
+      anonymous: false,
+      inputs: [{...}, {...}],
+      name: "Deposit",
+      type: "event"
+  }, {
+      anonymous: false,
+      inputs: [{...}, {...}],
+      name: "Refund",
+      type: "event"
+  }],
+  address: "0x1ec27f5d36a74cfac2c84e2c590b40f2164e598b",
+  transactionHash: 
+  "0xbcbefbd19cdfbffe856a215768b9da5b7035add676cbbb7cacea791b14b0dc0b",
+  Deposit: function(),
+  Refund: function(),
+  activateSwitch: function(),
+  allEvents: function(),
+  destroy: function(),
+  getNumUsers: function(),
+  getOwner: function(),
+  numUsers: function(),
+  owner: function(),
+  refundUser: function(),
+  usersPaid: function()
+}

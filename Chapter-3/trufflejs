@@ -1,0 +1,37 @@
+  build: {
+    "index.html": "index.html",
+    "app.js": [
+      "javascripts/app.js"
+    ],
+    "app.css": [
+      "stylesheets/app.css"
+    ],
+    "images/": "images/"
+  },
+  networks: {
+  "live": {
+    network_id: 1 // Ethereum public network
+  },
+  "morden": {
+    network_id: 2 //Ethereum official test network
+  },
+  "staging": {
+    network_id: 1234, // custom private network
+    host: 192.168.1.20,
+    port: 8101
+  },
+  "development": {
+    network_id: "default" // use default rpc settings
+  }
+}
+  rpc: {
+    host: "localhost",
+    port: 8545
+    // optional config values
+    // gas: Gas limit used for deploys. Default is 4712388
+    // gasPrice: Gas price used for deploys. Default is 100000000000
+    // from: From address used during migrations. 
+    //       If not specified, defaults to the first available account 
+    //       provided by your Ethereum client.
+  }
+};

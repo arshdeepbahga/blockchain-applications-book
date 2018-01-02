@@ -1,0 +1,11 @@
+# Run Geth and start mining
+./geth --datadir "$HOME/ethereum/datadir" --dev \
+    --unlock 0,1 --mine --minerthreads 2 --rpc \
+    --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcport 8101 \
+    --ipcpath "$HOME/ethereum/datadir/geth.ipc"
+
+# Start Swarm node
+./bzzd --bzzaccount "2809d4cb12b8bcaca9e4b805e474ad984c84b20d" \
+     --datadir "$HOME/ethereum/datadir" \
+     --ethapi "$HOME/ethereum/datadirgeth.ipc" \
+     --maxpeers 0 \

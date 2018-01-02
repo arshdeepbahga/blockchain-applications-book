@@ -1,0 +1,86 @@
+> myContractInstance
+{
+  abi: [{
+      constant: false,
+      inputs: [],
+      name: "checkGoalReached",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "deadline",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "numBackers",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "goal",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "amountRaised",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [],
+      name: "destroy",
+      outputs: [],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "owner",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [],
+      name: "fund",
+      outputs: [],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "campaignStatus",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      inputs: [{...}, {...}],
+      type: "constructor"
+  }, {
+      anonymous: false,
+      inputs: [{...}, {...}],
+      name: "Deposit",
+      type: "event"
+  }, {
+      anonymous: false,
+      inputs: [{...}, {...}],
+      name: "Refund",
+      type: "event"
+  }],
+  address: "0xc79d0f151f6c7f51772a4d9f488c90f5177fee4e",
+  transactionHash: "0x69a69e3681e95e677843ad1bc6844a
+                    891c771cafb007f86bce6f8ab7417bccb4",
+  Deposit: function(),
+  Refund: function(),
+  allEvents: function(),
+  amountRaised: function(),
+  campaignStatus: function(),
+  checkGoalReached: function(),
+  deadline: function(),
+  destroy: function(),
+  fund: function(),
+  goal: function(),
+  numBackers: function(),
+  owner: function()
+}

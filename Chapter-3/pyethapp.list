@@ -1,0 +1,4 @@
+$ pyethapp -d "/home/ubuntu/ethchain" account list
+     Address (if known)                       Id (if any)  Locked
+  #1 106082fe9ffddb0bb07be253e58e34bad764be35               yes
+  #2 943ac3596b1fd225976a461d8ce931f295519b6f               yes

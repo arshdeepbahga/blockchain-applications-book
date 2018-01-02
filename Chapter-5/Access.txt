@@ -1,0 +1,18 @@
+contract MyContract {  
+    address owner;
+
+    function MyContract() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner(){
+    if (msg.sender != owner) throw;
+        _
+    }
+
+    function withdrawFunds() onlyOwner{
+        if (!owner.send(this.balance))
+            throw; 
+    }  
+}
+

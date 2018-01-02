@@ -1,0 +1,7 @@
+web3.shh.post({
+  "from": identity,
+  "topics": [web3.fromAscii("example")],
+  "payload": web3.fromAscii("Test"),
+  "ttl": 100,
+  "workToProve": 1000
+});

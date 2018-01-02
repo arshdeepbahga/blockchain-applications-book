@@ -1,0 +1,13 @@
+// Watch for a specific event
+var event = myContractInstance.Deposit({}, '', function(error, result){
+    if (!error){
+        console.log(JSON.stringify(result));
+    }
+});
+
+// Watch for all events
+var events = myContractInstance.allEvents('', function(error, result){
+  if (!error){
+        console.log(JSON.stringify(result));
+    }
+});

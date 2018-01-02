@@ -1,0 +1,13 @@
+contract MyContract {
+    address public owner;
+
+    function MyContract() {
+        owner = msg.sender;
+    }
+
+    function kill() {
+        if (msg.sender == owner) {
+            suicide(owner);
+        }
+    }
+}

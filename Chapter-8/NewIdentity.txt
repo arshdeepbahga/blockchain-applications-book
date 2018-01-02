@@ -1,0 +1,5 @@
+> var identity = web3.shh.newIdentity();
+> identity
+"0x049d21eb458d3da76f393d01a909af7932d5d4acc9
+9fe46bdd72ad854fe179dc80605d1c1c7e3685c746007
+fd5d532327f36ebcf090f20f8715585a77b5b7f1623"

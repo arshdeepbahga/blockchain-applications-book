@@ -1,0 +1,19 @@
+build            : Build development version of app
+compile          : Compile contracts
+console          : Run a console with deployed contracts 
+                   instantiated and available (REPL)
+create:contract  : Create a basic contract
+create:migration : Create a new migration marked with the 
+                   current timestamp
+create:test      : Create a basic test
+exec             : Execute a JS file within truffle environment
+init             : Initialize new Ethereum project, 
+                   including example contracts and tests
+list             : List all available tasks
+migrate          : Run migrations
+networks         : Show addresses for deployed contracts on each network
+serve            : Serve app on localhost and rebuild changes as needed
+test             : Run tests
+version          : Show version number and exit
+watch            : Watch filesystem for changes and rebuild 
+                   the project automatically

@@ -1,0 +1,37 @@
+# Uploading a directory to Swarm
+
+$ ./bzzup --recursive /home/arshdeep/docs/
+uploading file /home/arshdeep/docs/data.txt (12 bytes)
+uploading file /home/arshdeep/docs/img.jpg (1998 bytes)
+uploading file /home/arshdeep/docs/sample.pdf (2247 bytes)
+uploading manifest
+{
+  "hash": "9dd0ebc5099fb9bad60fcf9feff14626e7bd4f
+            27ed2e490806f0207fd806d8d7",
+  "entries": [
+    {
+      "hash": "12dd380c8a628e56a20ad6d69c748ff205b
+                0c1c93e8734aad2c449ebc64e3388",
+      "contentType": "text/plain; charset=utf-8",
+      "path": "data.txt"
+    },
+    {
+      "hash": "4e87ccb50b6d284ea032bf2fe3521c7c61d5
+                ad290152c7e4ec36bf3a08bf5225",
+      "contentType": "image/jpeg",
+      "path": "img.jpg"
+    },
+    {
+      "hash": "e90d8050cdedbe2df078b6ed688efccf8caf3
+                20d95633081fabd14121063aac6",
+      "contentType": "application/pdf",
+      "path": "sample.pdf"
+    }
+  ]
+}
+
+---
+
+# Retrieving a file within the directory
+wget http://localhost:8500/bzz:/9dd0ebc5099fb9bad60fcf9
+        feff14626e7bd4f27ed2e490806f0207fd806d8d7/data.txt

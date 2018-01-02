@@ -1,0 +1,18 @@
+.
+|-- app
+|   |-- images
+|   |-- index.html
+|   |-- javascripts
+|   |   `-- app.js
+|   `-- stylesheets
+|       `-- app.css
+|-- contracts
+|   |-- ConvertLib.sol
+|   |-- MetaCoin.sol
+|   `-- Migrations.sol
+|-- migrations
+|   |-- 1_initial_migration.js
+|   `-- 2_deploy_contracts.js
+|-- test
+|   `-- metacoin.js
+`-- truffle.js

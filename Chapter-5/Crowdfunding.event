@@ -1,0 +1,29 @@
+// Watch for a specific event
+var event = myContractInstance.Deposit({}, '', function(error, result){
+    if (!error){
+        console.log(JSON.stringify(result));
+    }
+});
+
+// Event watcher output
+{
+"address":"0xee8322d4b92cc4240ea0a994cc0e620eaffb9e8d",
+"args": {
+        "_amount":"1000000000000000000",
+        "_from":"0xa5d73d67d7a79be62e2c77dd877b536775c446dd"
+        },
+"blockHash":"0x0adc09abb4322a350f375270a7dbbbeed8733e
+            616a2967b72985abf60a752f86",
+"blockNumber":2199,
+"event":"Deposit",
+"logIndex":0,
+"transactionHash":"0xd1dfac0f572cb7c960042ba57909e4c38dde55
+                   b002b82f8eb3c0e438877acde2",
+"transactionIndex":0}
+
+// Watch for all events
+var events = myContractInstance.allEvents('', function(error, result){
+  if (!error){
+        console.log(JSON.stringify(result));
+    }
+});

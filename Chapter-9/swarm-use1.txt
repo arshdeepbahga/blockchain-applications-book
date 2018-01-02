@@ -1,0 +1,22 @@
+# Uploading a single file to Swarm
+$ ./bzzup /home/arshdeep/data.txt 
+uploading file /home/arshdeep/data.txt (12 bytes)
+uploading manifest
+{
+  "hash": "e12494e670dc643b374c89975a88d08d42fc5e
+          4e3bcb39a4219972ca3884ffc3",
+  "entries": [
+    {
+      "hash": "12dd380c8a628e56a20ad6d69c748ff205
+               b0c1c93e8734aad2c449ebc64e3388",
+      "contentType": "text/plain; charset=utf-8"
+    }
+  ]
+}
+
+---
+
+# Retrieving a file from Swarm
+wget http://localhost:8500/bzz:/e12494e670dc643b37
+     4c89975a88d08d42fc5e4e3bcb39a4219972ca3884ffc3
+

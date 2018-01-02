@@ -1,0 +1,27 @@
+# Posting content to Swarm
+
+$ curl -i -X POST -d "Hello World" http://localhost:8500/bzzr:/
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 64
+Content-Type: text/plain
+Last-Modified: Fri, 25 Nov 2016 10:11:12 GMT
+Date: Fri, 25 Nov 2016 10:11:12 GMT
+
+d85117d40c1b74239bf0b0c4f8201e2be7d85c36efbbddc77fb9b58ed3964287
+
+--
+
+# Retrieving content from Swarm
+
+$ curl -i http://localhost:8500/bzzr:/d85117d40c1b74239bf0b0c4f8
+                          201e2be7d85c36efbbddc77fb9b58ed3964287
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 11
+Content-Type: application/octet-stream
+Last-Modified: Fri, 25 Nov 2016 10:11:47 GMT
+Date: Fri, 25 Nov 2016 10:11:47 GMT
+
+Hello World
+

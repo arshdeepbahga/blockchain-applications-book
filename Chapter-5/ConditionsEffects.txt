@@ -1,0 +1,30 @@
+//Incorrect ordering of phases
+
+function refundTicket(address buyer) onlyOwner {
+    // Conditions phase
+    // Check if the amount paid by registrant is not zero
+    if (registrantsPaid[buyer].amount == 0)
+        throw;
+
+    // Check if the number of tickets purchased by 
+    // the registrant is not zero
+    if (registrantsPaid[buyer].numTickets==0)
+        throw;
+
+    // Check if the contract has enough balance to refund the registrant
+    if (this.balance < registrantsPaid[buyer].amount) 
+        throw;
+            
+    // Interaction phase
+    // Refund the amount to the buyer
+    if(!buyer.send(registrantsPaid[buyer].amount)) 
+        throw;
+    Refund(buyer, registrantsPaid[buyer].amount);
+
+    // Effects phase
+    // Update the state variables
+    numTicketsSold = numTicketsSold - registrantsPaid[buyer].numTickets;
+    registrantsPaid[buyer].amount = 0;
+    registrantsPaid[buyer].numTickets=0;
+        
+}

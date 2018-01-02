@@ -1,0 +1,35 @@
+contract Owned  {
+  address owner;
+
+  modifier onlyOwner() {
+    if (msg.sender==owner) _
+  }
+
+  function owned() {
+    owner = msg.sender;
+  }
+
+  function changeOwner(address newOwner) onlyOwner {
+    owner = newOwner;
+  }
+
+  function getOwner() constant returns (address){
+    return owner;
+  }
+}
+
+
+contract MyContract is Owned{
+  
+  function MyContract(){
+      owned();
+  }
+
+  function withdrawFunds() onlyOwner{
+    if (!owner.send(this.balance))
+      throw; 
+  } 
+
+}
+
+

@@ -1,0 +1,27 @@
+#Install Cordova
+sudo npm install -g cordova
+
+#Install jQuery Mobile
+sudo npm install -g jquery-mobile
+
+#Install nativeDroid2
+sudo npm install -g bower
+bower install nativeDroid2
+
+#Create Cordova app project
+cordova create solarcharge
+cd solarcharge
+
+#Add Android platform to the project
+cordova platform add android --save
+
+#Install cordova plugins
+cordova plugin add cordova-plugin-googleplus
+cordova plugin add cordova-plugin-barcodescanner
+
+#Build application
+cordova build android
+
+
+
+

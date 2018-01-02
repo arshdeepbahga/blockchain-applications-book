@@ -1,0 +1,95 @@
+ETHEREUM OPTIONS:
+  --datadir "/home/ubuntu/.ethereum"  Data directory for the 
+            databases and keystore
+  --keystore: Directory for the keystore 
+            (default = inside the datadir)
+  --networkid "1": Network identifier 
+            (integer, 0=Olympic, 1=Frontier, 2=Morden)
+  --olympic:   Olympic network: pre-configured pre-release test network
+  --testnet:   Morden network: pre-configured test network with 
+            modified starting nonces (replay protection)
+  --dev:  Developer mode: pre-configured private network 
+            with several debugging flags
+  --genesis:  Insert/overwrite the genesis block (JSON format)
+  --identity: Custom node name
+  --fast: Enable fast syncing through state downloads
+  --lightkdf: Reduce key-derivation RAM & CPU usage at some 
+            expense of KDF strength
+  --cache "128":   Megabytes of memory allocated to internal 
+            caching (min 16MB / database forced)
+  --blockchainversion "3": Blockchain version (integer)
+  
+ACCOUNT OPTIONS:
+  --unlock  Comma separated list of accounts to unlock
+  --password: Password file to use for non-inteactive password input
+  
+API AND CONSOLE OPTIONS:
+  --rpc: Enable the HTTP-RPC server
+  --rpcaddr "localhost": HTTP-RPC server listening interface
+  --rpcport "8545":  HTTP-RPC server listening port
+  --rpcapi "eth,net,web3":: API's offered over the HTTP-RPC interface
+  --ws:  Enable the WS-RPC server
+  --wsaddr "localhost":  WS-RPC server listening interface
+  --wsport "8546":   WS-RPC server listening port
+  --wsapi "eth,net,web3"::  API's offered over the WS-RPC interface
+  --wsorigins:: Origins from which to accept websockets requests
+  --ipcdisable::   Disable the IPC-RPC server
+  --ipcapi "admin,eth,debug,miner,net,shh,txpool,personal,web3" 
+            API's offered over the IPC-RPC interface
+  --ipcpath "geth.ipc":  Filename for IPC socket/pipe within the 
+            datadir (explicit paths escape it)
+  --rpccorsdomain:   Comma separated list of domains from which to 
+            accept cross origin requests (browser enforced)
+  --jspath "."::   JavaScript root path for `loadScript` and 
+            document root for `admin.httpGet`
+  --exec::  Execute JavaScript statement (only in combination 
+            with console/attach)
+  --preload: Comma separated list of JavaScript files to preload 
+            into the console
+  
+NETWORKING OPTIONS:
+  --bootnodes: Comma separated enode URLs for P2P discovery bootstrap
+  --port "30303": Network listening port
+  --maxpeers "25": Maximum number of network peers 
+                (network disabled if set to 0)
+  --maxpendpeers "0": Maximum number of pending connection 
+                attempts (defaults used if set to 0)
+  --nat "any": NAT port mapping mechanism (any|none|upnp|pmp|extip:<IP>)
+  --nodiscover: Disables the peer discovery mechanism 
+                (manual peer addition)
+  --nodekey:   P2P node key file
+  --nodekeyhex:   P2P node key as hex (for testing)
+  
+MINER OPTIONS:
+  --mine:  Enable mining
+  --minerthreads "4":  Number of CPU threads to use for mining
+  --minergpus: List of GPUs to use for mining (e.g. '0,1' 
+               will use the first two GPUs found)
+  --autodag:   Enable automatic DAG pregeneration
+  --etherbase "0": Public address for block mining rewards 
+  (default = first account created)
+  --targetgaslimit "4712388": Target gas limit sets the
+        artificial target gas floor for the blocks to mine
+  --gasprice "20000000000":  Minimal gas price to accept 
+                for mining a transactions
+  --extradata: Block extra data set by the miner 
+                (default = client version)
+  
+GAS PRICE ORACLE OPTIONS:
+  --gpomin "20000000000": Minimum suggested gas price
+  --gpomax "500000000000"   Maximum suggested gas price
+  --gpofull "80":  Full block threshold for gas price calculation (%)
+  --gpobasedown "10":  Suggested gas price base step down ratio (1/1000)
+  --gpobaseup "100":  Suggested gas price base step up ratio (1/1000)
+  --gpobasecf "110":  Suggested gas price base correction factor (%)
+  
+VIRTUAL MACHINE OPTIONS:
+  --jitvm: Enable the JIT VM
+  --forcejit:  Force the JIT VM to take precedence
+  --jitcache "64":  Amount of cached JIT VM programs
+  
+LOGGING AND DEBUGGING OPTIONS:
+  --metrics:   Enable metrics collection and reporting
+  --fakepow:   Disables proof-of-work verification
+  --verbosity: Logging verbosity
+  --vmodule:   Per-module verbosity

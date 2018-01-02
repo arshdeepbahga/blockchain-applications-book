@@ -1,0 +1,67 @@
+//Contract source converted to a string
+var contractSource = "contract EventRegistration {...}";
+
+//Compile contract
+var contractCompiled = eth.compile.solidity(contractSource);
+
+//Set event quota and ticket price
+var quota = 1000;
+var price = 10000000000000000000;
+
+//Create contract
+var myContract = 
+web3.eth.contract(contractCompiled.EventRegistration.info.abiDefinition);
+
+//Deploy contract 
+var myContractInstance = myContract.new(
+    quota,
+    price,
+    {
+        from:web3.eth.accounts[0], 
+        data:contractCompiled.EventRegistration.code, 
+        gas: 1000000
+    }, function(e, contract){
+    if(!e) {
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + 
+            contract.transactionHash + " waiting to be mined...");
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+      }
+    }
+});
+
+//Contract transaction send: 
+//TransactionHash: 0x41a3fdd60c6ec796db16dcae28d7908d534
+                990893d7e5e1fc0e3295f9b36b049 waiting to be mined...
+
+//Contract mined! Address: 0xf0e5c493d414ee17e6b18298c167ca6641dd39d1
+
+// Send a call to check contract's state variable 
+> myContractInstance.quota.call();
+1000
+
+> myContractInstance.price.call();
+10000000000000000000
+
+// Send transaction to contract to buy ticket
+> myContractInstance.buyTicket.sendTransaction("abc@example.com", 1, 
+      {from: eth.accounts[1], value: web3.toWei(10, "ether"),
+       gas: 2000000})  
+
+// Check number of tickets sold
+> myContractInstance.numTicketsSold.call();
+1
+
+// Check amount paid by a registrant
+> myContractInstance.getRegistrantAmountPaid.call(eth.accounts[1])
+10000000000000000000
+
+// Send transaction to contract to refund ticket
+> myContractInstance.refundTicket.sendTransaction(
+          "0xa5d73d67d7a79be62e2c77dd877b536775c446dd", 
+          {from: eth.accounts[0],  gas: 2000000})
+
+// Check number of tickets sold after refund transaction is processed
+> myContractInstance.numTicketsSold.call();
+0

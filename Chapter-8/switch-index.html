@@ -1,0 +1,115 @@
+<!-- 
+MIT License
+
+Copyright (c) 2017 Arshdeep Bahga and Vijay Madisetti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Smart Switch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <link href="./bootstrap-toggle.min.css" rel="stylesheet">
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1>Smart Switch Dapp</h1>
+    <h3 style="margin-top: 0px; margin-bottom: 30px;"></h3>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <table class="table table-fluid">
+          <tr>
+            <th>Switch Contract Address</th>
+            <td><span class="black">
+            <span id="cf_address"></span></span>
+            </td>
+          </tr>
+          <tr>
+            <th>Rate</th>
+            <td><span class="black">
+            <span id="cf_rate"></span> (Wei/sec)</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Number of Users</th>
+            <td><span class="black">
+            <span id="cf_numUsers"></span></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <h2 style="padding-top: 20px;">Subscribe to use switch</h2>
+
+        <span class="black">Coinbase Address: 
+        <span id="cb_address" class="c_address"></span></span><br>
+        <span class="black">Coinbase Balance: 
+        <span id="cb_balance"></span> ETH</span><br><br>
+
+      <select class="form-control" id="numDays" onclick="showTotal();">
+      <option value="0">Select number of days</option>
+      <option value="1">1</option>
+      <option value="7">7</option>
+      <option value="30">30</option>
+      </select>
+        <br>
+        <span class="black">Total: 
+        <span id="subscriptionTotal">0</span> ETH</span><br><br>
+
+        <button class="btn btn-primary btn-lg" 
+          onclick="buySubscription();">BUY SUBSCRIPTION</button>
+        <br><br>
+        <div id="status">&nbsp;</div>
+      </div>
+
+      <div class="col-md-6">
+        <h2 style="padding-top: 20px;">Use switch</h2>
+        <span class="black">User Address: 
+        <span id="cf_userAddress"></span></span><br>
+        <span class="black">User Amount Paid: 
+        <span id="cf_userAmountPaid"></span></span><br>
+        <span class="black">Authorized Till: 
+        <span id="cf_usersAuthorizedTill"></span></span><br>
+        <span class="black">Authorization Status: 
+        <span id="cf_authStatus"></span></span><br>
+        <br>
+
+        <input id="toggle-event" type="checkbox" 
+              data-toggle="toggle" disabled>
+        <div id="switchStatus">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <script src="./jquery.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
+  <script src="./bootstrap-toggle.min.js"></script>
+</body>
+</html>

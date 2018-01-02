@@ -1,0 +1,27 @@
+var abi = [{ constant: true, inputs: [], name: "numUsers", outputs: 
+    [{ name: "", type: "uint256" }], type: "function" }, { constant: 
+    true, inputs: [{ name: "", type: "address" }], name: "usersPaid", 
+    outputs: [{ name: "", type: "uint256" }], type: "function" }, 
+    { constant: true, inputs: [], name: "getNumUsers", outputs: 
+    [{ name: "retVal", type: "uint256" }], type: "function" }, 
+    { constant: false, inputs: [], name: "destroy", outputs: [], 
+    type: "function" }, { constant: true, inputs: [], name: "getOwner",
+    outputs: [{ name: "retVal", type: "address" }], type: "function" },
+    { constant: true, inputs: [], name: "owner", outputs: [{ name: "", 
+    type: "address" }], type: "function" }, { constant: false, 
+    inputs: [], name: "activateSwitch", outputs: [], type: "function" },
+    { constant: false, inputs: [{ name: "recipient", type: "address" },
+    { name: "amount", type: "uint256" }], name: "refundUser", 
+    outputs: [], type: "function" }, { inputs: [], type: "constructor" },
+    { anonymous: false, inputs: [{ indexed: false, name: "_from", 
+    type: "address" }, { indexed: false, name: "_amount", type: 
+    "uint256" }], name: "Deposit", type: "event" }, { anonymous: 
+    false, inputs: [{ indexed: false, name: "_to", type: "address" },
+    { indexed: false, name: "_amount", type: "uint256" }], 
+    name: "Refund", type: "event" }];
+
+var MyContract = web3.eth.contract(abi);
+
+var myContractInstance = MyContract.at(
+                    '0x1ec27f5d36a74cfac2c84e2c590b40f2164e598b');
+

@@ -1,0 +1,12 @@
+$ pyethapp -d "/home/ubuntu/ethchain" account new 
+INFO:config setup default config path=/home/ubuntu/ethchain
+INFO:config writing config path=/home/ubuntu/ethchain/config.yaml
+INFO:app    using data in path=/home/ubuntu/ethchain
+INFO:config loading config path=/home/ubuntu/ethchain
+INFO:app    registering service service=accounts
+Password to encrypt private key: 
+Repeat for confirmation: 
+INFO:accounts   adding account 
+Account creation successful
+  Address: 943ac3596b1fd225976a461d8ce931f295519b6f
+       Id: None

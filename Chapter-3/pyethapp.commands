@@ -1,0 +1,6 @@
+account: Manage accounts.
+blocktest  Start after importing blocks from a file.
+config:  Show the config
+export:  Export the blockchain to FILE.
+import:  Import blocks from FILE.
+run: : Start the client ( --dev to stop on error)

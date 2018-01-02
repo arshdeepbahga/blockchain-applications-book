@@ -1,0 +1,66 @@
+function withdrawOwner () onlyOwner returns (bool ownerPaid){
+    // Phase-1:  Conditions
+    // Check if campaign ended
+    if(block.timestamp<deadline)
+        throw;
+
+    // Check if campaign succeeded
+    if (amountRaised < goal)
+        throw;
+
+    // Check if the campaign owner has already been paid
+    if (ownerPaid)
+        throw; 
+
+    // Phase-2:  Effects
+    ownerPaid = true; // set to true to prevent re-entrancy attack
+
+    // Phase-3: Interaction
+    if (!owner.send(this.balance)){
+        ownerPaid = false; // set to false if transfer to owner failed
+    }
+}
+
+function withdrawBacker (address backerAddress) returns (bool){
+    // Phase-1:  Conditions
+    // Check if campaign ended
+    if(block.timestamp<deadline)
+        throw;
+
+    // Check if campaign failed
+    // Refund is issued only when campaign fails
+    if (amountRaised > goal)
+        throw;
+
+    // Get the amount paid by the backer and the backer index
+    uint amount;
+    uint index;
+    uint i=0;
+    while (i <= numBackers){
+        if(backers[i].addr == backerAddress){
+            amount = backers[i].amount;
+            index = i;
+            break;
+        }
+        i++;
+    }
+
+    // Check if backer has already been redunded
+    if (amount==0)
+        throw; 
+
+    // Phase-2:  Effects
+    // Set the amount paid by backer to zero
+    backers[index].amount = 0;
+
+    // Phase-3: Interaction
+    // Refund the backer
+    if (backerAddress.send(amount)){
+        Refund(backers[index].addr, backers[index].amount);
+        return true;
+    }else {
+        // Reset the amount pending to the backer if transfer fails
+        backers[index].amount = amount;
+        return false;
+    }
+}

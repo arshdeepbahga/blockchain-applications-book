@@ -1,0 +1,30 @@
+//Send a transaction to the contract
+> myContractInstance.fund.sendTransaction({from: eth.accounts[1], 
+        value: web3.toWei(1, "ether"), gas: 2000000})
+"0x4fbd082414d2c11deaea9a9f9bac1281d521e666c3011b13b22b44f74409b7b6"
+
+//View transaction details
+> eth.getTransaction('0x4fbd082414d2c11deaea9a9f9bac1281d5
+                      21e666c3011b13b22b44f74409b7b6')
+{
+  blockHash: "0x25cfe80d2f7f75fbf41760cc6ed8f4c477
+              42cc4c55d4a35587f7b1671d650716",
+  blockNumber: 2005,
+  from: "0xa5d73d67d7a79be62e2c77dd877b536775c446dd",
+  gas: 2000000,
+  gasPrice: 20000000000,
+  hash: "0x4fbd082414d2c11deaea9a9f9bac1281d521e666c
+         3011b13b22b44f74409b7b6",
+  input: "0xb60d4288",
+  nonce: 31,
+  to: "0xc79d0f151f6c7f51772a4d9f488c90f5177fee4e",
+  transactionIndex: 0,
+  value: 1000000000000000000
+}
+
+//Send a call to the contract to get the value of a state variable
+> myContractInstance.numBackers.call();
+1
+
+> myContractInstance.amountRaised.call();
+1000000000000000000

@@ -1,0 +1,15 @@
+.
+|-- app
+|   |-- images
+|   |-- index.html
+|   |-- javascripts
+|   |   `-- app.js
+|   `-- stylesheets
+|       `-- app.css
+|-- contracts
+|   |-- RevenueShare.sol
+|   `-- Migrations.sol
+|-- migrations
+|   |-- 1_initial_migration.js
+|   `-- 2_deploy_contracts.js
+`-- truffle.js

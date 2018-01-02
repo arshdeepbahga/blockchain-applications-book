@@ -1,0 +1,51 @@
+{
+  abi: [{
+      constant: true,
+      inputs: [],
+      name: "creator",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [],
+      name: "kill",
+      outputs: [],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [],
+      name: "numShareholders",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: true,
+      inputs: [{...}],
+      name: "shareholders",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      constant: false,
+      inputs: [],
+      name: "shareRevenue",
+      outputs: [{...}],
+      type: "function"
+  }, {
+      inputs: [{...}],
+      type: "constructor"
+  }, {
+      anonymous: false,
+      inputs: [{...}, {...}],
+      name: "Disburse",
+      type: "event"
+  }],
+  address: "0x419f876663b3ebc7643c37dba10b7a62084f072b",
+  transactionHash: "0xeb98119d6b3c263c6cdb3362dcaca04e5
+                    55a68b40a6c70d51446a50a658a19ac",
+  Disburse: function(),
+  allEvents: function(),
+  creator: function(),
+  kill: function(),
+  numShareholders: function(),
+  shareRevenue: function(),
+  shareholders: function()
+}

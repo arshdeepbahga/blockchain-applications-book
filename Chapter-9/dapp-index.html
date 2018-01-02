@@ -1,0 +1,147 @@
+<!-- 
+MIT License
+
+Copyright (c) 2017 Arshdeep Bahga and Vijay Madisetti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Stock Photos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+
+<body>
+  <iframe id="my_iframe" style="display:none;"></iframe>
+  <a id="downloadContainer" download></a>
+
+  <div class="container-fluid">
+    <h1>Stock Photos Dapp</h1>
+    <h3 style="margin-top: 0px; margin-bottom: 30px;"></h3>
+
+    <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">Upload</a></li>
+        <li><a href="#tabs-2">View</a></li>
+      </ul>
+      <div id="tabs-1">
+        <div class="row">
+          <div class="col-md-8">
+
+            <h2 style="padding-top: 20px;">Upload a Photo </h2>
+
+            <span class="black">Coinbase Address: 
+      <span id="cb_address" class="c_address"></span></span><br>
+            <span class="black">Coinbase Balance: 
+      <span id="cb_balance"></span> ETH</span><br><br>
+
+            <input type="text" class="form-control" 
+            id="title" placeholder="Title" /><br>
+
+            <input type="text" class="form-control" 
+            id="tags" placeholder="Tags" /><br>
+
+            <input type="text" class="form-control" 
+            id="price" placeholder="Price (in Wei)" /><br>
+
+            <span class="black">Photo Thumbnail:
+      <input class="form-control" type="file" 
+        name="thumbnailUpload" id="thumbnailUpload" /><br>
+      </span>
+            <span class="black">Photo:
+      <input class="form-control" type="file"
+           name="fileUpload" id="fileUpload" /><br>
+      </span>
+            <br><br>
+
+            <button class="btn btn-primary btn-lg" 
+            onclick="uploadPhoto();">UPLOAD</button>
+            <br><br>
+            <div id="status">&nbsp;</div>
+            <div id="uploadedPhoto">&nbsp;</div>
+
+          </div>
+          <div class="col-md-4">
+
+          </div>
+
+        </div>
+      </div>
+      <div id="tabs-2">
+        <div class="row">
+          <div class="col-md-8">
+
+            <h2 style="padding-top: 20px;">View Photos</h2>
+            <button class="btn btn-primary btn-lg" 
+            onclick="getPhotos();">VIEW</button>
+
+            <br><br>
+            <div id="photosContainer"></div>
+
+          </div>
+
+          <div class="col-md-4">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h2 style="padding-top: 20px;">Stock Photos Contract</h2>
+        <h3 style="margin-top: 0px; margin-bottom: 30px;"></h3>
+        <table class="table table-fluid">
+
+          <tr>
+            <th>Contract Address</th>
+            <td><span class="black"><span id="cf_address"></span>
+            </span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>Total Photos</th>
+            <td><span class="black"><span id="cf_numPhotos"></span>
+            </span>
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery-ui.js"></script>
+
+</body>
+</html>

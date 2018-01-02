@@ -1,0 +1,242 @@
+> web3
+{
+  admin: {
+    datadir: "/home/arshdeep/ethdata",
+    nodeInfo: {
+
+      enode: "enode://74e9655a22ac60e3bb542f2a2ecaa5b208a89eb
+          d1f2b5c61cfeaa233d53e79e070653bf74a42388b4229c5
+          60fbf1c9936af68361770afc7f91eb93a6eca26d18@192.168.1.1:54686",
+
+      id: "74e9655a22ac60e3bb542f2a2ecaa5b208a89ebd1f2b5c61c
+          feaa233d53e79e070653bf74a42388b4229c560fbf1c9936af
+          68361770afc7f91eb93a6eca26d18",
+
+      ip: "192.168.1.1",
+      listenAddr: "[::]:57046",
+      name: "Geth/v1.4.5-stable/linux/go1.5.1",
+      ports: {
+        discovery: 54686,
+        listener: 54686
+      },
+      protocols: {
+        eth: {...},
+        shh: "unknown"
+      }
+    },
+    peers: [],
+    addPeer: function(),
+    exportChain: function(),
+    getContractInfo: function(),
+    getDatadir: function(callback),
+    getNodeInfo: function(callback),
+    getPeers: function(callback),
+    httpGet: function(),
+    importChain: function(),
+    register: function(),
+    registerUrl: function(),
+    saveInfo: function(),
+    setGlobalRegistrar: function(),
+    setHashReg: function(),
+    setSolc: function(),
+    setUrlHint: function(),
+    sleep: function(),
+    sleepBlocks: function(),
+    startNatSpec: function(),
+    startRPC: function(),
+    startWS: function(),
+    stopNatSpec: function(),
+    stopRPC: function(),
+    stopWS: function()
+  },
+  currentProvider: {
+    newAccount: function(),
+    send: function(),
+    sendAsync: function(),
+    unlockAccount: function()
+  },
+  db: {
+    getHex: function(),
+    getString: function(),
+    putHex: function(),
+    putString: function()
+  },
+  debug: {
+    backtraceAt: function(),
+    blockProfile: function(),
+    chaindbProperty: function(),
+    cpuProfile: function(),
+    dumpBlock: function(),
+    gcStats: function(),
+    getBlockRlp: function(),
+    goTrace: function(),
+    memStats: function(),
+    metrics: function(),
+    printBlock: function(),
+    seedHash: function(),
+    setBlockProfileRate: function(),
+    setHead: function(),
+    stacks: function(),
+    startCPUProfile: function(),
+    startGoTrace: function(),
+    stopCPUProfile: function(),
+    stopGoTrace: function(),
+    traceBlock: function(),
+    traceBlockByFile: function(),
+    traceBlockByHash: function(),
+    traceBlockByNumber: function(),
+    traceTransaction: function(),
+    verbosity: function(),
+    vmodule: function(),
+    writeBlockProfile: function(),
+    writeMemProfile: function()
+  },
+  eth: {
+    accounts: ["0xf9b25d4f9d7a367774f7f1c71943c8e69a1fb540", 
+    "0xc421d5e214ddb07a41d28cf89ee37495aa5edba7"],
+    blockNumber: 1199,
+    coinbase: "0xf9b25d4f9d7a367774f7f1c71943c8e69a1fb540",
+    compile: {
+      lll: function(),
+      serpent: function(),
+      solidity: function()
+    },
+    defaultAccount: undefined,
+    defaultBlock: "latest",
+    gasPrice: 20000000000,
+    hashrate: 60870,
+    mining: true,
+    pendingTransactions: [],
+    syncing: false,
+    call: function(),
+    contract: function(abi),
+    estimateGas: function(),
+    filter: function(fil, callback),
+    getAccounts: function(callback),
+    getBalance: function(),
+    getBlock: function(),
+    getBlockNumber: function(callback),
+    getBlockTransactionCount: function(),
+    getBlockUncleCount: function(),
+    getCode: function(),
+    getCoinbase: function(callback),
+    getCompilers: function(),
+    getGasPrice: function(callback),
+    getHashrate: function(callback),
+    getMining: function(callback),
+    getNatSpec: function(),
+    getPendingTransactions: function(callback),
+    getStorageAt: function(),
+    getSyncing: function(callback),
+    getTransaction: function(),
+    getTransactionCount: function(),
+    getTransactionFromBlock: function(),
+    getTransactionReceipt: function(),
+    getUncle: function(),
+    getWork: function(),
+    iban: function(iban),
+    icapNamereg: function(),
+    isSyncing: function(callback),
+    namereg: function(),
+    resend: function(),
+    sendIBANTransaction: function(),
+    sendRawTransaction: function(),
+    sendTransaction: function(),
+    sign: function(),
+    signTransaction: function(),
+    submitTransaction: function(),
+    submitWork: function()
+  },
+  isIBAN: undefined,
+  miner: {
+    makeDAG: function(),
+    setEtherbase: function(),
+    setExtra: function(),
+    setGasPrice: function(),
+    start: function(),
+    startAutoDAG: function(),
+    stop: function(),
+    stopAutoDAG: function()
+  },
+  net: {
+    listening: true,
+    peerCount: 0,
+    version: "1",
+    getListening: function(callback),
+    getPeerCount: function(callback),
+    getVersion: function(callback)
+  },
+  personal: {
+    listAccounts: ["0xf9b25d4f9d7a367774f7f1c71943c8e69a1fb540", 
+    "0xc421d5e214ddb07a41d28cf89ee37495aa5edba7"],
+    getListAccounts: function(callback),
+    importRawKey: function(),
+    lockAccount: function(),
+    newAccount: function(),
+    signAndSendTransaction: function(),
+    unlockAccount: function()
+  },
+  providers: {
+    HttpProvider: function(host),
+    IpcProvider: function(path, net)
+  },
+  settings: {
+    defaultAccount: undefined,
+    defaultBlock: "latest"
+  },
+  shh: {
+    addToGroup: function(),
+    filter: function(fil, callback),
+    hasIdentity: function(),
+    newGroup: function(),
+    newIdentity: function(),
+    post: function()
+  },
+  txpool: {
+    content: {
+      pending: {},
+      queued: {}
+    },
+    inspect: {
+      pending: {},
+      queued: {}
+    },
+    status: {
+      pending: 0,
+      queued: 0
+    },
+    getContent: function(callback),
+    getInspect: function(callback),
+    getStatus: function(callback)
+  },
+  version: {
+    api: "0.15.3",
+    ethereum: "0x3f",
+    network: "1",
+    node: "Geth/v1.4.5-stable/linux/go1.5.1",
+    whisper: "0x2",
+    getEthereum: function(callback),
+    getNetwork: function(callback),
+    getNode: function(callback),
+    getWhisper: function(callback)
+  },
+  createBatch: function(),
+  fromAscii: function(str),
+  fromDecimal: function(value),
+  fromICAP: function(icap),
+  fromUtf8: function(str),
+  fromWei: function(number, unit),
+  isAddress: function(address),
+  isChecksumAddress: function(address),
+  isConnected: function(),
+  reset: function(keepIsSyncing),
+  setProvider: function(provider),
+  sha3: function(string, options),
+  toAscii: function(hex),
+  toBigNumber: function(number),
+  toChecksumAddress: function(address),
+  toDecimal: function(value),
+  toHex: function(val),
+  toUtf8: function(hex),
+  toWei: function(number, unit)
+}

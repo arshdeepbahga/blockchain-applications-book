@@ -1,0 +1,51 @@
+//Contract source converted to a string
+var contractSource = "contract NameRegistrar {...}";
+
+//Compile contract
+var contractCompiled = eth.compile.solidity(contractSource);
+
+/Create contract
+var myContract = 
+  web3.eth.contract(contractCompiled.NameRegistrar.info.abiDefinition);
+
+
+//Deploy contract 
+var myContractInstance = myContract.new(
+    {
+        from:web3.eth.accounts[0], 
+        data:contractCompiled.NameRegistrar.code, 
+        gas: 1000000
+    }, function(e, contract){
+    if(!e) {
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + 
+            contract.transactionHash + " waiting to be mined...");
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+      }
+    }
+});
+
+
+// Send transaction to contract to register a name
+> myContractInstance.register.sendTransaction("CrowdFunding", 
+                    {from: eth.accounts[0], gas: 2000000})
+
+// Send transaction to contract to set an address for a name
+> myContractInstance.setAddr.sendTransaction("CrowdFunding", 
+        "0xc79d0f151f6c7f51772a4d9f488c90f5177fee4e", 
+        {from: eth.accounts[0], gas: 2000000})
+
+// Send transaction to contract to set content for a name
+> myContractInstance.setContent.sendTransaction("CrowdFunding", 
+      "Crowd funding contract", {from: eth.accounts[0], gas: 2000000})
+
+// Send a call to check number of records
+> myContractInstance.numRecords.call()
+1
+
+// Send a call to get details of a name
+> myContractInstance.records.call("CrowdFunding")
+["0x2809d4cb12b8bcaca9e4b805e474ad984c84b20d", 
+"0xc79d0f151f6c7f51772a4d9f488c90f5177fee4e", 
+"0x43726f77642066756e64696e6720636f6e747261637400000000000000000000"]

@@ -1,0 +1,105 @@
+<!-- 
+MIT License
+
+Copyright (c) 2017 Arshdeep Bahga and Vijay Madisetti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Crowdfunding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap.min.css" >
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1>Crowdfunding Dapp</h1>
+    <h3 style="margin-top: 0px; margin-bottom: 30px;">
+    Crowdfunding campaign for sample project</h3>
+
+<div class="row">
+  <div class="col-md-6">
+<table class="table table-fluid">
+      <tr>
+        <th>Crowdfunding Goal</th>
+        <td><span class="black">
+        <span id="cf_goal"></span> ETH</span></td>
+      </tr> 
+      <tr>
+        <th>Total Funds Raised</th>
+        <td><span class="black">
+        <span id="cf_balance"></span> ETH</span></td>
+      </tr> 
+      <tr>
+        <th>Total Backers</th>
+        <td><span class="black">
+        <span id="cf_backers"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Deadline</th>
+        <td><span class="black">
+        <span id="cf_days"></span> </span></td>
+      </tr> 
+      <tr>
+        <th>Campaign Status</th>
+        <td><span class="black">
+        <span id="cf_status"></span> </span></td>
+      </tr> 
+    </table>
+  </div>
+  
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+      <h2 style="padding-top: 20px;">Contribute to Campaign</h2>
+      <h3 style="margin-top: 0px; margin-bottom: 30px;">
+      Pay to crowdfunding contract</h3>
+
+      <span class="black">Coinbase Address: 
+      <span id="cb_address" class="c_address"></span></span><br>
+      <span class="black">Coinbase Balance: 
+      <span id="cb_balance"></span> ETH</span><br><br>
+       <input style="height: 38px;" 
+       type="text" class="form-control" id="amount" 
+       placeholder="Amount in ETH"/><br>
+     <button class="btn btn-primary btn-lg" 
+     onclick="contribute();">SEND</button>
+     <button class="btn btn-primary btn-lg" 
+     onclick="checkGoalReached();">CHECK GOAL</button>
+     <br><br>
+ <div id="status"></div>      
+      </div>
+      <div class="col-md-4">
+      <center>
+    <h3>Send Ether to</h3>
+<span class="black"><span id="cf_address"></span></span><br>
+<div id="qrcode"></div>
+</center>
+  </div>
+</div>
+  </div>
+<script src="./jquery.min.js"></script>
+<script src="./bootstrap.min.js"></script>
+
+</body>
+</html>

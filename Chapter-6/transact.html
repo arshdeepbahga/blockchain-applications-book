@@ -1,0 +1,104 @@
+<!-- 
+MIT License
+
+Copyright (c) 2017 Arshdeep Bahga and Vijay Madisetti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<html>
+<head>
+  <title>SolarCharge</title>
+  <link rel="stylesheet" href="./css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./css/jquery.mobile.min.css" />
+  <link rel="stylesheet" href="./css/nativedroid2.css" />
+  <script src="cordova.js"></script>
+</head>
+
+<body>
+  <div data-role="page">
+    <nd2-include data-src="panel.left.html"></nd2-include>
+    <div data-role="header" data-position="fixed">
+      <a href="#leftpanel" class="ui-btn ui-btn-left">
+      <i class="zmdi zmdi-menu"></i></a>
+      <h1>SolarCharge</h1>
+    </div>
+
+    <div role="main" class="ui-content" data-inset="false">
+      <div class="nd2-card">
+        <div class="card-title has-supporting-text">
+          <center>
+            <h4 class="card-primary-title clr-black">Confirm 
+            Transaction</h4>
+            <br>
+            <img class="profile-thumbnail" 
+              src="./img/profile.png" width="20%" />
+            <img class="profile-thumbnail" 
+              src="./img/arrow.png" width="20%" />
+            <img class="profile-thumbnail" 
+              src="./img/profile1.png" width="20%" />
+
+          </center>
+          <br>
+          <label>Minutes to charge</label>
+          <p id="minutes"></p>
+          <center>
+            <hr width="98%">
+          </center>
+          <label>SolarCoins to Pay</label>
+          <p id="amount"></p>
+          <center>
+            <hr width="98%">
+          </center>
+          <br>
+          <a href="#" id="btnconfirm" class="ui-btn clr-btn-blue">Confirm 
+          Transaction</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.mobile.min.js"></script>
+  <script src="./js/nativedroid2.js"></script>
+  <script src="nd2settings.js"></script>
+
+  <script>
+    $(document).on('pagebeforecreate', '[data-role="page"]', function() {
+      setTimeout(function() {
+        $.mobile.loading('show');
+      }, 1);
+    });
+
+    $(document).on('pageshow', '[data-role="page"]', function() {
+      setTimeout(function() {
+        $.mobile.loading('hide');
+      }, 1);
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      var amount = sessionStorage.getItem('amount');
+      $('#amount').html(amount);
+      var minutes = sessionStorage.getItem('minutes');
+      $('#minutes').html(minutes);
+    });
+  </script>
+</body>
+</html>

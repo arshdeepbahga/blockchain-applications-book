@@ -1,0 +1,33 @@
+//View transaction receipt
+> eth.getTransactionReceipt('0x4fbd082414d2c11deaea9a9f9bac
+                      1281d521e666c3011b13b22b44f74409b7b6')
+{
+  blockHash: "0x25cfe80d2f7f75fbf41760cc6ed8f4c47742cc4c5
+              5d4a35587f7b1671d650716",
+  blockNumber: 2005,
+  contractAddress: null,
+  cumulativeGasUsed: 103252,
+  from: "0xa5d73d67d7a79be62e2c77dd877b536775c446dd",
+  gasUsed: 103252,
+  logs: [{
+      address: "0xc79d0f151f6c7f51772a4d9f488c90f5177fee4e",
+      blockHash: "0x25cfe80d2f7f75fbf41760cc6ed8f4c47
+                  742cc4c55d4a35587f7b1671d650716",
+      blockNumber: 2005,
+      data: "0x000000000000000000000000a5d73d67d7a79be62e2c77d
+            d877b536775c446dd000000000000000000000000000000000
+            0000000000000000de0b6b3a7640000",
+      logIndex: 0,
+      topics: ["0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c
+              460751c2402c5c5cc9109c"],
+      transactionHash: "0x4fbd082414d2c11deaea9a9f9bac1281d5
+              21e666c3011b13b22b44f74409b7b6",
+      transactionIndex: 0
+  }],
+  root: "9c53db502649055d31ad10eaa9969f821a60
+        afecd10aa8d84aa2613c5bbc9119",
+  to: "0xc79d0f151f6c7f51772a4d9f488c90f5177fee4e",
+  transactionHash: "0x4fbd082414d2c11deaea9a9f9bac1
+        281d521e666c3011b13b22b44f74409b7b6",
+  transactionIndex: 0
+}

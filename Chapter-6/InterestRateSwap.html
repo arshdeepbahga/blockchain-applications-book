@@ -1,0 +1,207 @@
+<!-- 
+MIT License
+
+Copyright (c) 2017 Arshdeep Bahga and Vijay Madisetti
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Interest Rate Swap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <link rel="stylesheet" href="h./jquery-ui.css">
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <h1>Interest Rate Swap Dapp</h1>
+    <h3 style="margin-top: 0px; margin-bottom: 30px;"></h3>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Party-A: Initialize Contract</a></li>
+    <li><a href="#tabs-2">Party-B: Validate Contract</a></li>
+    <li><a href="#tabs-3">Exercise</a></li>
+  </ul>
+  <div id="tabs-1">
+    <div class="row">
+  <div class="col-md-8">
+   
+      <h2 style="padding-top: 20px;">Initialize Contract </h2>
+      <h3 style="margin-top: 0px; margin-bottom: 30px;">
+      Party-A initializes the contract</h3>
+
+      <span class="black">Coinbase Address: 
+        <span id="cb_address" class="c_address"></span></span><br>
+      <span class="black">Coinbase Balance: 
+        <span id="cb_balance"></span> ETH</span><br><br>
+
+      <input type="text" class="form-control" 
+        id="partyATradingAcct" placeholder="Party-A Trading Account"/>
+      <input type="text" class="form-control" 
+       id="partyBTradingAcct" placeholder="Party-B Trading Account"/>
+      <input type="text" class="form-control" 
+       id="fixedRate" placeholder="Fixed Rate (*100)"/>
+      <input type="text" class="form-control" 
+       id="floatingRateMargin" placeholder="Floating Rate Margin(*100)"/>
+      <input type="text" class="form-control" 
+       id="notional" placeholder="Notional"/>
+      <input type="text" class="form-control" 
+       id="schedule" placeholder="Schedule (in minutes)"/>
+      <input type="text" class="form-control" 
+       id="rateFeed" placeholder="Address of Rate Provider"/>
+      <input type="text" class="form-control" 
+        id="feedName" placeholder="Feed Name"/>
+      <input type="text" class="form-control" 
+        id="timeToExpiry" placeholder="Time To Expiry(in minutes)"/>
+
+     <button class="btn btn-primary btn-lg" onclick="initialize();">
+     INITIALIZE CONTRACT</button>
+     <br><br>
+ <div id="status">&nbsp;</div>      
+      </div>
+      <div class="col-md-4">
+  </div>
+
+</div>
+  </div>
+  <div id="tabs-2">
+    <div class="row">
+  <div class="col-md-8">
+      <h2 style="padding-top: 20px;">Validate Contract</h2>
+      <h3 style="margin-top: 0px; margin-bottom: 30px;">
+      Party-B validates the contract</h3>
+      <span class="black">Coinbase Address: 
+      <span id="cb_address1" class="c_address"></span></span>
+      <span class="black">Coinbase Balance: 
+      <span id="cb_balance1"></span> ETH</span><br><br>
+      <br><br>
+     <button class="btn btn-primary btn-lg" onclick="validate();">
+     VALIDATE CONTRACT</button>
+     <br><br>
+ <div id="status1">&nbsp;</div>      
+      </div>
+      <div class="col-md-4">
+  </div>
+
+</div>
+  </div>
+  <div id="tabs-3">
+   <div class="row">
+  <div class="col-md-8">
+      <h2 style="padding-top: 20px;">Exercise</h2>
+      <h3 style="margin-top: 0px; margin-bottom: 30px;">
+      Exercise the contract</h3>
+      <span class="black">Coinbase Address: 
+      <span id="cb_address2" class="c_address"></span></span>
+      <span class="black">Coinbase Balance: 
+      <span id="cb_balance2"></span> ETH</span><br><br>
+      <br><br>
+     <button class="btn btn-primary btn-lg" 
+     onclick="exercise();">EXERCISE</button>
+     <br><br>
+ <div id="status2">&nbsp;</div>      
+      </div>
+      <div class="col-md-4">
+  </div>
+</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+<h2 style="padding-top: 20px;">Interest Rate Swap Contract</h2>
+      <h3 style="margin-top: 0px; margin-bottom: 30px;"></h3>
+<table class="table table-fluid">
+      <tr>
+        <th>Party-A</th>
+        <td><span class="black">
+        <span id="cf_partyA"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Party-B</th>
+        <td><span class="black">
+        <span id="cf_partyB"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Notional</th>
+        <td><span class="black">
+        <span id="cf_notional"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Fixed Rate</th>
+        <td><span class="black">
+        <span id="cf_fixedRate"></span></span></td>
+      </tr> 
+       <tr>
+        <th>Floating Rate Margin</th>
+        <td><span class="black">
+        <span id="cf_floatingRateMargin"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Last Amount Paid</th>
+        <td><span class="black">
+        <span id="cf_lastAmountPaid"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Schedule</th>
+        <td><span class="black">
+        <span id="cf_schedule"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Start Time</th>
+        <td><span class="black">
+        <span id="cf_startTime"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Time to Expiry</th>
+        <td><span class="black">
+        <span id="cf_timeToExpiry"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Is Active</th>
+        <td><span class="black">
+        <span id="cf_isActive"></span></span></td>
+      </tr> 
+      <tr>
+        <th>Is Expired</th>
+        <td><span class="black">
+        <span id="cf_isExpired"></span></span></td>
+      </tr> 
+    </table>
+  </div>
+  <div class="col-md-4">
+      <center>
+    <h3>Contract Address</h3>
+<span class="black"><span id="cf_address"></span></span><br>
+<div id="qrcode"></div>
+</center>
+  </div>
+</div>
+  </div>
+  <script src="/jquery.min.js"></script>
+<script src="/bootstrap.min.js"></script>
+ <script src="/jquery-1.12.4.js"></script>
+  <script src="/jquery-ui.js"></script>
+</body>
+</html>

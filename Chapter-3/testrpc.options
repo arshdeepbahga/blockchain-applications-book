@@ -1,0 +1,17 @@
+--accounts: Specify the number of accounts to generate at startup.
+--blocktime: Specify blocktime in seconds for automatic mining. 
+                Default is 0 and no auto-mining.
+--deterministic: Generate deterministic addresses based on a 
+                pre-defined mnemonic.
+--mnemonic: Use a specific HD wallet mnemonic to generate 
+                initial addresses.
+--port: Port number to listen on. Defaults to 8545.
+--hostname: Hostname to listen on. Defaults to Node's 
+                server.listen() default.
+--seed: Use arbitrary data to generate the HD wallet 
+            mnemonic to be used.
+--gasPrice: Use a custom Gas Price (defaults to 1)
+--gasLimit: Use a custom Gas Limit (defaults to 0x47E7C4)
+--fork: Fork from another currently running Ethereum 
+            client at a given block. 
+--debug: Output VM opcodes for debugging

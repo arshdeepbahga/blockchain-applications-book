@@ -1,0 +1,51 @@
+//Contract source converted to a string
+var contractSource = "contract Voting {...}";
+
+//Compile contract
+var contractCompiled = eth.compile.solidity(contractSource);
+
+//Set event quota and ticket price
+var proposalNames = ["Alpha", "Beta", "Gamma", "Delta"];
+var votingTime = 86400 //in seconds
+
+//Create contract
+var myContract = 
+  web3.eth.contract(contractCompiled.Voting.info.abiDefinition);
+
+//Deploy contract 
+var myContractInstance = myContract.new(proposalNames,
+    votingTime,{from:web3.eth.accounts[0], 
+        data:contractCompiled.Voting.code, gas: 1000000
+    }, function(e, contract){
+    if(!e) {
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + 
+            contract.transactionHash + " waiting to be mined...");
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+    }}});
+
+//Contract transaction send: 
+//TransactionHash: 0x41a3fdd60c6ec796db16dcae28d7908d534
+                990893d7e5e1fc0e3295f9b36b049 waiting to be mined...
+
+//Contract mined! Address: 0xf0e5c493d414ee17e6b18298c167ca6641dd39d1
+
+// Send a call to check contract's state variable 
+> myContractInstance.numProposals.call();
+4
+
+> myContractInstance.votingTime.call();
+86400
+
+// Send transaction to give right of voting 
+> myContractInstance.giveRightToVote.sendTransaction(eth.accounts[1], 
+        {from: eth.accounts[0], gas: 2000000})
+
+// Send transaction to give vote
+> myContractInstance.vote.sendTransaction(2, 
+      {from: eth.accounts[1], gas: 2000000})
+
+// Check winning proposal
+> myContractInstance.winningProposal.call()
+[2, "0x47616d6d61000000000000000000000000000000000000000000000000000000"]

@@ -1,0 +1,17 @@
+# Prepare environment. Requires Go-Lang
+export GOROOT=/usr/lib/go
+export GOPATH="$HOME/go"
+
+# Download go-ethereum source code
+mkdir -p $GOPATH/src/github.com/ethereum
+cd $GOPATH/src/github.com/ethereum
+git clone https://github.com/ethereum/go-ethereum
+cd go-ethereum
+git checkout master
+go get github.com/ethereum/go-ethereum
+
+# Build go-ethereum and swarm tools
+go build ./cmd/bzzd
+go build ./cmd/bzzup
+go build ./cmd/bzzhash
+go build ./cmd/geth

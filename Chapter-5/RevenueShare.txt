@@ -1,0 +1,54 @@
+//Contract source converted to a string
+var contractSource = "contract RevenueShare { ... } ";
+
+//Compile contract
+var contractCompiled = eth.compile.solidity(contractSource);
+
+//List of addresses of shareholders for initializing contract
+var addresses = ["0xa5D73d67D7a79Be62e2c77DD877B536775C446DD",
+              "0xDa7d00412Ae0FD1A590AdC3718B007872D40F090",       
+              "0x3a15b505277b2F869ffcB1E9d1E76bD180189E0D"];
+
+//Create contract
+var myContract = 
+  web3.eth.contract(contractCompiled.RevenueShare.info.abiDefinition);
+
+//Deploy contract 
+var myContractInstance = myContract.new(
+    addresses,
+    {
+        from:web3.eth.accounts[0], 
+        data:contractCompiled.RevenueShare.code, 
+        gas: 1000000
+    }, function(e, contract){
+    if(!e) {
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + 
+                  contract.transactionHash + " waiting to be mined...");
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+      }
+    }
+});
+
+//Contract transaction send: TransactionHash: 
+//0xbdc9d77e7350ac7aa13f2fc834c07f92ea247126d
+14b6881988b699a3a4e19e0 waiting to be mined...
+//Contract mined! Address: 0x15e476ada310dff63fc2c332e051c08a20d157aa
+
+// Send a call to check contract's state variable 
+> myContractInstance.numShareholders.call();
+3
+
+// Send transaction to contract
+> myContractInstance.shareRevenue.sendTransaction({from: eth.accounts[0], 
+                            to: myContractInstance.address, 
+                            value: web3.toWei(30, "ether"), gas: 2000000})
+
+// Check shareholder balances
+> web3.fromWei(eth.getBalance(addresses[0]), "ether")
+10
+> web3.fromWei(eth.getBalance(addresses[1]), "ether")
+10
+> web3.fromWei(eth.getBalance(addresses[2]), "ether")
+10

@@ -1,0 +1,21 @@
+# Upload JPG image file to Swarm
+
+curl -i -X POST --data-binary "@/home/ubuntu/img.jpg" 
+    http://localhost:8500/bzzr:/
+
+--
+
+# View JPG image file in browser
+http://localhost:8500/bzzr:/4e87ccb50b6d284ea032bf2f
+    e3521c7c61d5ad290152c7e4ec36bf3a08bf5225?content_type=image/jpeg
+
+-----
+
+# Upload PDF file to Swarm
+curl -i -X POST --data-binary "@/home/ubuntu/data.pdf" 
+    http://localhost:8500/bzzr:/
+
+--
+# View PDF file in browser
+http://localhost:8500/bzzr:/5b5570b68d5745e3f06536d585
+    3a348b644fd404ebc519331daccd2255bf1d46?content_type=application/pdf

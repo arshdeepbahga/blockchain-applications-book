@@ -1,0 +1,16 @@
+// Send transaction to contract
+> myContractInstance.shareRevenue.sendTransaction({from: eth.accounts[0], 
+                        to: myContractInstance.address, 
+                        value: web3.toWei(30, "ether"), gas: 2000000})
+
+// Check shareholder balances
+> web3.fromWei(eth.getBalance(addresses[0]), "ether")
+10
+> web3.fromWei(eth.getBalance(addresses[1]), "ether")
+10
+> web3.fromWei(eth.getBalance(addresses[2]), "ether")
+10
+
+// Send a call to check contract's state variable 
+> myContractInstance.numShareholders.call();
+3

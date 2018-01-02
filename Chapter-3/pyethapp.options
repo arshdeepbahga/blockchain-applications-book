@@ -1,0 +1,11 @@
+--profile [livenet|testnet]: Configuration profile.  [default: livenet]
+-C, --Config TEXT:           Alternative config file
+-c TEXT:                     Single configuration parameters 
+-d, --data-dir TEXT          Data directory  
+-l, --log_config TEXT        log_config string
+--log-json / --log-no-json:  Log as structured json output
+--log-file PATH:             Log to file instead of stderr.
+-b, --bootstrap_node TEXT:   Single bootstrap_node
+-m, --mining_pct INTEGER:    pct cpu used for mining
+--unlock TEXT:               Unlock an account (prompts for password)
+--password FILENAME:         Path to a password file
